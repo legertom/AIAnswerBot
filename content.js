@@ -6,6 +6,7 @@ chrome.runtime.sendMessage(
         console.error("Error fetching page content:", response.error);
       } else {
         window.pageContent = response.pageContent;
+        console.log("Page content:", window.pageContent);
       }
     }
   );

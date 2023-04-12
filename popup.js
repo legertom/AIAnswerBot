@@ -3,7 +3,7 @@ chrome.storage.local.get("apiKey", (data) => {
       document.getElementById("apiKey").value = data.apiKey;
     }
   });
-  
+
 document.getElementById("submitQuestion").addEventListener("click", () => {
     const question = document.getElementById("question").value;
     const apiKey = document.getElementById("apiKey").value;
@@ -13,6 +13,9 @@ document.getElementById("submitQuestion").addEventListener("click", () => {
   chrome.storage.local.set({ apiKey: apiKey }, () => {
     console.log("API key saved to local storage");
   });
+
+  console.log("Question:", question); 
+  console.log("Page content:", window.pageContent);
 
       getAnswerFromOpenAI(apiKey, question, window.pageContent)
         .then((answer) => {
